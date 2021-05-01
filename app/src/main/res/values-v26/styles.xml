@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="myLinearLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginHorizontal">10dp</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="myTextLabel">
+        <item name="android:layout_width">10dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textColor">@color/blue_primary</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="myEditText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:backgroundTint">@color/blue_primaryLight</item>
+        <item name="android:ems">10</item>
+        <item name="android:inputType">textPersonName</item>
+        <item name="android:textColorHint">@color/blue_primaryLight</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="myRadioButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">27dp</item>
+        <item name="android:buttonTint">@color/blue_primary</item>
+        <item name="android:textColor">@color/blue_primary</item>
+        <item name="android:textSize">12dp</item>
+    </style>
+
+    <style name="mySubmitButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:backgroundTint">@color/blue_primaryDark</item>
+        <item name="android:textColor">@color/white</item>
+
+
+
+    </style>
+</resources>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

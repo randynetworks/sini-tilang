@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Sini Tilang!</string>
+    <string-array name="angka">
+        <item>-Tipe-</item>
+        <item>Motor</item>
+        <item>Mobil</item>
+    </string-array>
+</resources>

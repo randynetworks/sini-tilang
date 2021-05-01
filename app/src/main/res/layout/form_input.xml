@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Sini Tilang"
+        android:textColor="@color/blue_primary"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Form Penilangan Kendaraan"
+        android:textColor="@color/blue_primaryLight"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView3"
+        app:layout_constraintStart_toStartOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
+            <LinearLayout style="@style/myLinearLayout">
+
+                <TextView
+                    android:id="@+id/textView5"
+                    style="@style/myTextLabel"
+                    android:text="Nama Pengendara" />
+
+                <EditText
+                    android:id="@+id/input_pengirim"
+                    style="@style/myEditText"
+                    android:hint="Masukan Nama Pengendara" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/myLinearLayout">
+
+                <TextView
+                    android:id="@+id/textView6"
+                    style="@style/myTextLabel"
+                    android:text="Alamat Pengendara" />
+
+                <EditText
+                    android:id="@+id/input_alamat"
+                    style="@style/myEditText"
+                    android:gravity="start|top"
+                    android:hint="Masukan Alamat Pengendara"
+                    android:inputType="textMultiLine" />
+
+
+            </LinearLayout>
+
+            <LinearLayout style="@style/myLinearLayout">
+
+                <TextView
+                    android:id="@+id/textView7"
+                    style="@style/myTextLabel"
+                    android:text="Nomor STNK" />
+
+                <EditText
+                    android:id="@+id/input_stnk"
+                    style="@style/myEditText"
+                    android:hint="Masukan Nomor STNK"
+                    android:inputType="number" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/myLinearLayout">
+
+                <TextView
+                    android:id="@+id/textView8"
+                    style="@style/myTextLabel"
+                    android:text="Nomor KTP" />
+
+                <EditText
+                    android:id="@+id/input_ktp"
+                    style="@style/myEditText"
+                    android:hint="Masukan Nomor KTP"
+                    android:inputType="number" />
+            </LinearLayout>
+
+
+            <LinearLayout style="@style/myLinearLayout">
+
+                <TextView
+                    android:id="@+id/textView10"
+                    style="@style/myTextLabel"
+                    android:text="Nama Kendaraan" />
+
+                <EditText
+                    android:id="@+id/input_kendaraan"
+                    style="@style/myEditText"
+                    android:layout_width="48dp"
+                    android:hint="Masukan Nama Kendaraan " />
+
+                <Spinner
+                    android:id="@+id/jumlah_barang"
+                    style="@style/myEditText"
+                    android:layout_width="0dp"
+                    android:entries="@array/angka" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/myLinearLayout">
+
+                <TextView
+                    android:id="@+id/textView12"
+                    style="@style/myTextLabel"
+                    android:text="Berat Barang (kg)" />
+
+                <EditText
+                    android:id="@+id/berat_barang"
+                    style="@style/myEditText"
+                    android:hint="Masukan Berat Barang (kg)" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/myLinearLayout">
+
+                <TextView
+                    android:id="@+id/textView11"
+                    style="@style/myTextLabel"
+                    android:text="Harga Kirim/Barang" />
+
+                <EditText
+                    android:id="@+id/harga_barang"
+                    style="@style/myEditText"
+                    android:hint="Masukan Harga Per Barang" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/myLinearLayout"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView13"
+                    style="@style/myTextLabel"
+                    android:layout_width="131dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Jenis Pengiriman" />
+
+                <RadioGroup
+                    android:id="@+id/kurir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/rb_boga_cepat"
+                        style="@style/myRadioButton"
+                        android:text="Boga Cepat" />
+
+                    <RadioButton
+                        android:id="@+id/rb_boga_faster"
+                        style="@style/myRadioButton"
+                        android:text="Boga Faster" />
+
+                    <RadioButton
+                        android:id="@+id/rb_boga_kedip"
+                        style="@style/myRadioButton"
+                        android:text="Boga Kedip" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout style="@style/myLinearLayout">
+
+                <Switch
+                    android:id="@+id/s_asuransi"
+                    style="@style/myTextLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Asuransi"
+                    android:textOff="Engga"
+                    android:textOn="Pake" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/myLinearLayout"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView14"
+                    style="@style/myTextLabel"
+                    android:layout_width="match_parent"
+                    android:text="Barang Diterima" />
+
+                <CheckBox
+                    android:id="@+id/cb_diterima"
+                    android:layout_width="wrap_content"
+                    android:layout_height="31dp"
+                    android:layout_weight="1"
+                    android:buttonTint="@color/blue_primary"
+                    android:text="Diterima"
+                    android:textColor="@color/blue_primary"
+                    android:textSize="12dp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout style="@style/myLinearLayout">
+
+                <TextView
+                    android:id="@+id/textView15"
+                    style="@style/myTextLabel"
+                    android:layout_marginTop="10dp"
+                    android:text="Data Penerima"
+                    android:textColor="@color/blue_primaryLight"
+                    android:textSize="15dp" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/myLinearLayout">
+
+                <TextView
+                    android:id="@+id/textView16"
+                    style="@style/myTextLabel"
+                    android:text="Nama Penerima" />
+
+                <EditText
+                    android:id="@+id/input_penerima"
+                    style="@style/myEditText"
+                    android:hint="Masukan Nama Penerima" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/myLinearLayout">
+
+                <TextView
+                    android:id="@+id/textView17"
+                    style="@style/myTextLabel"
+                    android:text="Alamat Penerima" />
+
+                <EditText
+                    android:id="@+id/input_alamat_penerima"
+                    style="@style/myEditText"
+                    android:gravity="start|top"
+                    android:hint="Masukan Alamat Penerima"
+                    android:inputType="textMultiLine" />
+
+
+            </LinearLayout>
+
+            <LinearLayout style="@style/myLinearLayout">
+
+                <TextView
+                    android:id="@+id/textView18"
+                    style="@style/myTextLabel"
+                    android:text="Telephone" />
+
+                <EditText
+                    android:id="@+id/input_telp_penerima"
+                    style="@style/myEditText"
+                    android:hint="Masukan Nomor Telp Penerima"
+                    android:inputType="phone" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/myLinearLayout">
+
+                <TextView
+                    android:id="@+id/textView19"
+                    style="@style/myTextLabel"
+                    android:text="Kode Pengiriman" />
+
+                <EditText
+                    android:id="@+id/input_kode_pengiriman"
+                    style="@style/myEditText"
+                    android:hint="Masukan kode Pengiriman" />
+
+            </LinearLayout>
+
+            <LinearLayout style="@style/myLinearLayout">
+
+
+                <Button
+                    android:id="@+id/btn_submit"
+                    style="@style/mySubmitButton"
+                    android:text="Simpan Data" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
