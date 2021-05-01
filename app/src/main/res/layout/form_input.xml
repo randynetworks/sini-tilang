@@ -57,7 +57,7 @@
                     android:text="Nama Pengendara" />
 
                 <EditText
-                    android:id="@+id/input_pengirim"
+                    android:id="@+id/input_pengendara"
                     style="@style/myEditText"
                     android:hint="Masukan Nama Pengendara" />
             </LinearLayout>
@@ -122,7 +122,7 @@
                     android:hint="Masukan Nama Kendaraan " />
 
                 <Spinner
-                    android:id="@+id/jumlah_barang"
+                    android:id="@+id/tipe_kendaraan"
                     style="@style/myEditText"
                     android:layout_width="0dp"
                     android:entries="@array/angka" />
@@ -133,12 +133,12 @@
                 <TextView
                     android:id="@+id/textView12"
                     style="@style/myTextLabel"
-                    android:text="Berat Barang (kg)" />
+                    android:text="Jumlah Orang" />
 
                 <EditText
-                    android:id="@+id/berat_barang"
+                    android:id="@+id/jml_orng"
                     style="@style/myEditText"
-                    android:hint="Masukan Berat Barang (kg)" />
+                    android:hint="Jumlah Orang yang menaiki kendaraan" />
             </LinearLayout>
 
             <LinearLayout style="@style/myLinearLayout">
@@ -146,12 +146,12 @@
                 <TextView
                     android:id="@+id/textView11"
                     style="@style/myTextLabel"
-                    android:text="Harga Kirim/Barang" />
+                    android:text="Denda" />
 
                 <EditText
-                    android:id="@+id/harga_barang"
+                    android:id="@+id/denda"
                     style="@style/myEditText"
-                    android:hint="Masukan Harga Per Barang" />
+                    android:hint="Denda per Orang" />
             </LinearLayout>
 
             <LinearLayout
@@ -163,40 +163,36 @@
                     style="@style/myTextLabel"
                     android:layout_width="131dp"
                     android:layout_marginTop="10dp"
-                    android:text="Jenis Pengiriman" />
+                    android:text="Jenis Sidang" />
 
                 <RadioGroup
-                    android:id="@+id/kurir"
+                    android:id="@+id/jenis_sidang"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:orientation="horizontal">
+                    android:orientation="vertical">
 
                     <RadioButton
-                        android:id="@+id/rb_boga_cepat"
+                        android:id="@+id/rb_terbuka"
                         style="@style/myRadioButton"
-                        android:text="Boga Cepat" />
+                        android:text="Terbuka" />
 
                     <RadioButton
-                        android:id="@+id/rb_boga_faster"
+                        android:id="@+id/rb_tertutup"
                         style="@style/myRadioButton"
-                        android:text="Boga Faster" />
+                        android:text="Tertutup" />
 
-                    <RadioButton
-                        android:id="@+id/rb_boga_kedip"
-                        style="@style/myRadioButton"
-                        android:text="Boga Kedip" />
                 </RadioGroup>
             </LinearLayout>
 
             <LinearLayout style="@style/myLinearLayout">
 
                 <Switch
-                    android:id="@+id/s_asuransi"
+                    android:id="@+id/s_ditahan"
                     style="@style/myTextLabel"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Asuransi"
+                    android:text="Ditahan"
                     android:textOff="Engga"
                     android:textOn="Pake" />
 
@@ -211,7 +207,7 @@
                     android:id="@+id/textView14"
                     style="@style/myTextLabel"
                     android:layout_width="match_parent"
-                    android:text="Barang Diterima" />
+                    android:text="STNK  Diterima" />
 
                 <CheckBox
                     android:id="@+id/cb_diterima"
@@ -229,42 +225,14 @@
             <LinearLayout style="@style/myLinearLayout">
 
                 <TextView
-                    android:id="@+id/textView15"
-                    style="@style/myTextLabel"
-                    android:layout_marginTop="10dp"
-                    android:text="Data Penerima"
-                    android:textColor="@color/blue_primaryLight"
-                    android:textSize="15dp" />
-            </LinearLayout>
-
-            <LinearLayout style="@style/myLinearLayout">
-
-                <TextView
                     android:id="@+id/textView16"
                     style="@style/myTextLabel"
-                    android:text="Nama Penerima" />
+                    android:text="Nama Polisi" />
 
                 <EditText
-                    android:id="@+id/input_penerima"
+                    android:id="@+id/input_polisi"
                     style="@style/myEditText"
-                    android:hint="Masukan Nama Penerima" />
-            </LinearLayout>
-
-            <LinearLayout style="@style/myLinearLayout">
-
-                <TextView
-                    android:id="@+id/textView17"
-                    style="@style/myTextLabel"
-                    android:text="Alamat Penerima" />
-
-                <EditText
-                    android:id="@+id/input_alamat_penerima"
-                    style="@style/myEditText"
-                    android:gravity="start|top"
-                    android:hint="Masukan Alamat Penerima"
-                    android:inputType="textMultiLine" />
-
-
+                    android:hint="Masukan Nama Polisi" />
             </LinearLayout>
 
             <LinearLayout style="@style/myLinearLayout">
@@ -275,9 +243,9 @@
                     android:text="Telephone" />
 
                 <EditText
-                    android:id="@+id/input_telp_penerima"
+                    android:id="@+id/input_telp_polisi"
                     style="@style/myEditText"
-                    android:hint="Masukan Nomor Telp Penerima"
+                    android:hint="Masukan Nomor Telp Polisi"
                     android:inputType="phone" />
             </LinearLayout>
 
@@ -286,12 +254,12 @@
                 <TextView
                     android:id="@+id/textView19"
                     style="@style/myTextLabel"
-                    android:text="Kode Pengiriman" />
+                    android:text="Nomor Tilang" />
 
                 <EditText
-                    android:id="@+id/input_kode_pengiriman"
+                    android:id="@+id/no_tilang"
                     style="@style/myEditText"
-                    android:hint="Masukan kode Pengiriman" />
+                    android:hint="Masukan Nomor Tilang" />
 
             </LinearLayout>
 

@@ -20,10 +20,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class FormInput extends AppCompatActivity {
 
-    String strJumlah;
+    String tipe;
     String diterima;
-    String asuransi;
-    String strKurir;
+    String tahan;
+    String strSidang;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,28 +31,27 @@ public class FormInput extends AppCompatActivity {
         setContentView(R.layout.form_input);
 
         // ===================== EDIT TEXT =============================
-        // Pengirim
-        EditText input_pengirim = findViewById(R.id.input_pengirim);
+        // PENGENDARA
+        EditText input_pengendara = findViewById(R.id.input_pengendara);
         EditText input_alamat = findViewById(R.id.input_alamat);
-        EditText input_telp = findViewById(R.id.input_stnk);
-        EditText input_email = findViewById(R.id.input_ktp);
+        EditText input_stnk = findViewById(R.id.input_stnk);
+        EditText input_ktp = findViewById(R.id.input_ktp);
 
-        // Barang
-        EditText input_barang = findViewById(R.id.input_kendaraan);
-        EditText berat_barang = findViewById(R.id.berat_barang);
-        EditText harga_barang = findViewById(R.id.harga_barang);
+        // KENDARAAN
+        EditText input_kendaraan = findViewById(R.id.input_kendaraan);
+        EditText jml_orng = findViewById(R.id.jml_orng);
+        EditText denda = findViewById(R.id.denda);
 
-        // Penerima
-        EditText input_penerima = findViewById(R.id.input_penerima);
-        EditText input_alamat_penerima = findViewById(R.id.input_alamat_penerima);
-        EditText input_telp_penerima = findViewById(R.id.input_telp_penerima);
-        EditText input_kode_pengiriman = findViewById(R.id.input_kode_pengiriman);
+        // DATA POLISI
+        EditText input_polisi = findViewById(R.id.input_polisi);
+        EditText input_telp_polisi = findViewById(R.id.input_telp_polisi);
+        EditText no_tilang = findViewById(R.id.no_tilang);
 
 
         // ===================== RADIO GROUP =============================
-        RadioGroup radioKurir = findViewById(R.id.kurir);
+        RadioGroup jenis_sidang = findViewById(R.id.jenis_sidang);
 
-        radioKurir.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        jenis_sidang.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 RadioButton checkedRadioButton = (RadioButton)group.findViewById(checkedId);
@@ -61,20 +60,20 @@ public class FormInput extends AppCompatActivity {
                 // If the radiobutton that has changed in check state is now checked...
                 if (isChecked)
                 {
-                    strKurir = checkedRadioButton.getText().toString();
-                    Toast.makeText(FormInput.this, "Kamu Memilih " + strKurir, Toast.LENGTH_SHORT).show();
+                    strSidang = checkedRadioButton.getText().toString();
+                    Toast.makeText(FormInput.this, "Kamu Memilih " + strSidang, Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
         // ===================== SWITCH =============================
-        Switch s_asuransi = findViewById(R.id.s_asuransi);
+        Switch s_ditahan = findViewById(R.id.s_ditahan);
 
-        s_asuransi.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        s_ditahan.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                asuransi = (isChecked) ? "Di Asuransikan" : "Tidak Asuransikan";
-                Toast.makeText(FormInput.this, "Kamu Memilih " + asuransi, Toast.LENGTH_SHORT).show();
+                tahan = (isChecked) ? "Di Tahan" : "Tidak Ditahan";
+                Toast.makeText(FormInput.this, "Kamu Memilih " + tahan, Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -94,13 +93,13 @@ public class FormInput extends AppCompatActivity {
 
 
         // ===================== SPINNER =============================
-        Spinner jumlah_barang = findViewById(R.id.jumlah_barang);
+        Spinner tipe_kendaraan = findViewById(R.id.tipe_kendaraan);
 
-        jumlah_barang.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            String item = String.valueOf(jumlah_barang.getSelectedItem());
+        tipe_kendaraan.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            String item = String.valueOf(tipe_kendaraan.getSelectedItem());
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                strJumlah = (item.equals(jumlah_barang.getSelectedItem())) ? "" : parent.getItemAtPosition(position).toString();
+                tipe = (item.equals(tipe_kendaraan.getSelectedItem())) ? "" : parent.getItemAtPosition(position).toString();
                 Toast.makeText(FormInput.this, "Kamu Memilih " + parent.getItemAtPosition(position).toString(), Toast.LENGTH_SHORT).show();
             }
 
@@ -120,54 +119,50 @@ public class FormInput extends AppCompatActivity {
                 // ===================== ALERT DIALOG YES NO =============================
                 AlertDialog.Builder dialog = new AlertDialog.Builder(FormInput.this);
                 dialog.setTitle("Yakin disimpan?");
-                dialog.setMessage("Hi! Apakah data yang dimasukan Valid?");
                 dialog.setIcon(R.drawable.icon_info);
 
-                dialog.setPositiveButton("Heem Valid!", new DialogInterface.OnClickListener() {
+                dialog.setPositiveButton("Data Valid", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
                         // DATA PENGIRIM
-                        String strPengirim = input_pengirim.getText().toString();
+                        String pengendara = input_pengendara.getText().toString();
                         String strAlamat = input_alamat.getText().toString();
-                        String strTelp = input_telp.getText().toString();
-                        String strEmail = input_email.getText().toString();
+                        String strTelp = input_stnk.getText().toString();
+                        String strEmail = input_ktp.getText().toString();
 
                         // DATA BARANG
-                        String strBarang = input_barang.getText().toString();
-                        Double dBarang = Double.parseDouble(berat_barang.getText().toString());
-                        Double dHarga = Double.parseDouble(harga_barang.getText().toString());
-                        Double dQty = Double.parseDouble(strJumlah);
+                        String nama_kendaraan = input_kendaraan.getText().toString();
+                        Double jmlOrang = Double.parseDouble(jml_orng.getText().toString());
+                        Double ddenda = Double.parseDouble(denda.getText().toString());
                         // HASIL
-                        Double TotalHarga = dQty * dHarga * dBarang;
+                        Double TotalHarga =  ddenda * jmlOrang;
 
-                        // DATA PENERIMA
-                        String strPenerima = input_penerima.getText().toString();
-                        String strAlamatPenerima = input_alamat_penerima.getText().toString();
-                        String strTelpPenerima = input_telp_penerima.getText().toString();
-                        String strKode = input_kode_pengiriman.getText().toString();
+                        // DATA POLISI
+                        String strPolisi = input_polisi.getText().toString();
+                        String strTelpPolisi = input_telp_polisi.getText().toString();
+                        String noTilang = no_tilang.getText().toString();
 
 
-                        String MESSAGE = "======== DATA PENERIMA ========\n" +
-                                "Nama Pengirim : " + strPengirim + "\n" +
+                        String MESSAGE = "Data Pengendara\n" +
+                                "Nama Pengendara : " + pengendara + "\n" +
                                 "Alamat Pengirim : " + strAlamat +  "\n" +
                                 "No. Telp : " + strTelp + "\n" +
-                                "Email Pengirim : " + strEmail + "\n" +
-                                "======== DATA BARANG ========\n" +
-                                "Nama Barang : " + strBarang + "\n" +
-                                "Berat Barang : "+ dBarang + "\n" +
-                                "Harga Kirim/Barang : " + dHarga + "\n" +
-                                "Jumlah Barang : " + dQty + "\n" +
+                                "Email  : " + strEmail + "\n" +
+                                "Informasi Kendaraan\n" +
+                                "Nama Kendaraan : " + nama_kendaraan + "\n" +
+                                "Jumlah Orang : "+ jmlOrang + "\n" +
+                                "Harga Denda : " + ddenda + "\n" +
+                                "Tipe kendaraan : " + tipe + "\n" +
                                 "Total Yang Harus Dibayar : \n" +
                                 "======== " + TotalHarga + " ========\n" +
                                 "Barang Diterima : " + diterima + "\n" +
-                                "Barang Diasuransi : " + asuransi + "\n" +
-                                "Kurir Oleh : " +  strKurir + "\n" +
+                                "Barang Ditahan : " + tahan + "\n" +
+                                "Kurir Oleh : " +  strSidang + "\n" +
                                 "======== DATA PENGIRIM ========\n" +
-                                "Nama Penerima : " + strPenerima + ", \n" +
-                                "Alamat Penerima : " + strAlamatPenerima + ", \n" +
-                                "No Telp Penerima : " + strTelpPenerima + ", \n" +
-                                "\n\nKode Pengiriman : " + strKode + "\n" +
+                                "Nama Polisi : " + strPolisi + ", \n" +
+                                "No Telp Polisi : " + strTelpPolisi + ", \n" +
+                                "\nNo Tilang : " + noTilang + "\n" +
                                 "===============================";
 
                         System.out.println(MESSAGE);
@@ -177,7 +172,7 @@ public class FormInput extends AppCompatActivity {
                         startActivity(successFormResult);
                     }
                 });
-                dialog.setNegativeButton("Engga valid", new DialogInterface.OnClickListener() {
+                dialog.setNegativeButton("Data Tidak Valid", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         Toast.makeText(FormInput.this, "Data Gagal Disimpan.", Toast.LENGTH_LONG).show();
